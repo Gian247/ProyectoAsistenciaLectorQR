@@ -35,7 +35,7 @@ class ModeloRegistros{
 
     }
     static public function mdlIngresarRegistro($tabla,$datos){
-        var_dump($datos);
+        
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla( nombre_completo, familia, posible_ingreso, grado_ingreso, celular, correo, cantidad_asistentes, asistencia_postulante) 
         VALUES (:nombre, :familia, :ingreso, :grado, :celular, :correo, :cantidad, :postulante)");
         
@@ -61,5 +61,31 @@ class ModeloRegistros{
 		
 		$stmt = null;
 
+    }
+    static public function mdlEditarRegistro2($tabla,$datos){
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre_completo = :nombre, familia = :familia, posible_ingreso = :ingreso, grado_ingreso = :grado, celular = :celular, correo = :correo, cantidad_asistentes = :cantidad, asistencia_postulante=:postulante WHERE id_postulante = :id");
+        $stmt->bindParam(":id", $datos["idPostulante"], PDO::PARAM_INT);
+		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":familia", $datos["familia"], PDO::PARAM_STR);
+		$stmt->bindParam(":ingreso", $datos["ingreso"], PDO::PARAM_STR);
+		$stmt->bindParam(":grado", $datos["grado"], PDO::PARAM_STR);
+        $stmt->bindParam(":celular", $datos["celular"], PDO::PARAM_STR);
+		$stmt->bindParam(":correo", $datos["correo"], PDO::PARAM_STR);
+        $stmt->bindParam(":cantidad", $datos["cantidad"], PDO::PARAM_INT);
+		$stmt->bindParam(":postulante", $datos["postulante"], PDO::PARAM_STR);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
     }
 }

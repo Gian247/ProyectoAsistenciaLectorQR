@@ -117,6 +117,7 @@ CUERPO DOCUMENTO
     ?>
 
     <script src="vistas/js/plantilla.js"></script>
+    <script src="vistas/js/registro.js"></script>
     <script type="text/javascript" >
     var sonido = new Audio("barcode.wav");
     var scanner=new Instascan.Scanner({
