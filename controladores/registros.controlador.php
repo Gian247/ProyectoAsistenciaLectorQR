@@ -160,4 +160,35 @@ class ControladorRegistros{
             }
         }
     }
+
+    /*=============================================
+	            BORRAR REGISTROS
+	=============================================*/
+    static public function ctrBorrarRegistro(){
+        if(isset($_GET["idRegistro"])){
+            $tabla="registro_familias_postulantes";
+            $datos=$_GET["idRegistro"];
+
+            $respuesta=ModeloRegistros::mdlBorrarRegistros($tabla,$datos);
+            if($respuesta=="ok"){
+                echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "La categoria ha sido borrada correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "registros";
+
+								}
+							})
+
+				</script>';
+            }
+
+        }
+    }
 }

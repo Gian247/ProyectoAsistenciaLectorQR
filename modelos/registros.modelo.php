@@ -88,4 +88,19 @@ class ModeloRegistros{
 
 		$stmt = null;
     }
+
+    /*=============================================
+	            BORRAR REGISTROS
+	=============================================*/
+    static public function mdlBorrarRegistros($tabla,$datos){
+        $stmt=Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_postulante=:id");
+        $stmt -> bindParam(":id",$datos,PDO::PARAM_INT);
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+        $stmt->close();
+        $stmt=null;
+    }
 }

@@ -71,7 +71,7 @@
                 <td>
                   <div class="btn-group">
                       <button class="btn btn-warning btnEditarRegistro" idPostulante="<?php echo $value["id_postulante"];?>" data-toggle="modal" data-target="#modalEditarRegistro"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btnEliminarCategoria" idPostulante="<?php echo $value["id_postulante"];?>"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-danger btnEliminarRegistro" idPostulante="<?php echo $value["id_postulante"];?>"><i class="fa fa-times"></i></button>
                   </div>
                 </td>
                 
@@ -256,7 +256,7 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-th"></i></span>
-              <input type="text" class="form-control input-lg" id="idPostulante" name="idPostulante" placeholder="Ingresar Nombre Completo" disabled>
+              <input type="text" class="form-control input-lg" id="idPostulante" name="idPostulante" placeholder="Ingresar Nombre Completo" readonly>
             </div>
           </div>
           <!--Entrada de editar nombre-->
@@ -347,5 +347,12 @@
 
 </div>
 </div>
+
+
+<?php 
+  $borrarRegistro= new ControladorRegistros();
+  $borrarRegistro->ctrBorrarRegistro();
+
+?>
 
 

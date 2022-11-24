@@ -1,3 +1,6 @@
+/*---------------------------------------
+            EDITAR REGISTRO
+    ---------------------------------------- */
 $(document).on("click",".btnEditarRegistro",function(){
    
     
@@ -30,3 +33,28 @@ $(document).on("click",".btnEditarRegistro",function(){
         }
     })
 })
+
+
+
+/*---------------------------------------
+            ELIMINAR REGISTRO
+    ---------------------------------------- */
+
+    $(document).on("click",".btnEliminarRegistro",function(){
+        
+        let idRegistro = $(this).attr("idPostulante");
+        swal({
+            title:"¿ Está seguro que desea borrar el registro ?",
+            text:"! Si no esta segur@ puede cancelar la acción ¡",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Si, borrar registro'
+        }).then(function(result){
+            if(result.value){
+                window.location = "index.php?ruta=registros&idRegistro="+idRegistro;
+            }
+        })
+    })
