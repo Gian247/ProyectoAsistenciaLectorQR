@@ -12,7 +12,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="icon" href="vistas/img/LVC-logo-2.png">
+  <link rel="icon" href="vistas/img/logo-escudo-lima-villa-college.png">
 
    <!--=====================================
   PLUGINS DE CSS
@@ -43,7 +43,7 @@
    <!-- iCheck for checkboxes and radio inputs -->
    <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
      <!-- Select2 -->
-  <link rel="stylesheet" href="../../bower_components/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="vistas/bower_components/select2/dist/css/select2.min.css">
 
   <!--=====================================
   PLUGINS DE JAVASCRIPT

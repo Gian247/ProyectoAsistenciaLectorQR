@@ -7,11 +7,11 @@
      <a href="inicio" class="logo">
         <!-- Logo mini -->
         <span class="logo-mini">
-            <img src="vistas/img/LVC-logo-2.png" class="img-responsive" style="padding:10px">
+            <img src="vistas/img/logo-escudo-lima-villa-college.png" class="img-responsive" style="padding:10px">
         </span>
         <!-- Logo normal -->
         <span class="logo-lg">
-            <img src="vistas/img/LVC-logo-2.png" class="img-responsive" style="padding:10px 0px">
+            LVC
         </span>
 
         
@@ -40,7 +40,7 @@
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
 
                         
-                    <img src="vistas/img/LVC-logo-2.png" alt="" class="user-image">
+                    <img src="vistas/img/logo-escudo-lima-villa-college.png" alt="" class="user-image">
                        
                         
                     <span class="hidden-xs">Sistemas LVC</span>

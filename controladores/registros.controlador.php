@@ -12,7 +12,7 @@ class ControladorRegistros{
         if(isset($_POST["id_pos"])){
             
             $tabla="registro_familias_postulantes";
-            $datos=array("id_postulante"=>$_POST["id_pos"],"cantidad"=>$_POST["editarCantidad"],"asistencia"=>$_POST["editarPostulante"]);
+            $datos=array("id_postulante"=>$_POST["id_pos"],"cantidad"=>$_POST["editarCantidad1"],"asistencia"=>$_POST["editarPostulante1"]);
             $respuesta=ModeloRegistros::mdlEditarRegistros($tabla,$datos);
             if($respuesta== "ok"){
                 echo'<script>
@@ -99,67 +99,67 @@ class ControladorRegistros{
         }
     }
 
-    static public function ctrEditarRegistro2(){
-        if(isset($_POST["editarNombre"])){
-            if(preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["editarNombre"])&&
-            preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["editarFamilia"])&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarIngreso"])&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarGrado"])&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarCelular"]&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarCantidad"])
-            )){
-                $tabla = "registro_familias_postulantes";
-                $datos=array(
-                        "idPostulante"=>$_POST["idPostulante"],
-                        "nombre"=>$_POST["editarNombre"],
-                        "familia"=>$_POST["editarFamilia"],
-                        "ingreso"=>$_POST["editarIngreso"],
-                        "grado"=>$_POST["editarGrado"],
-                        "celular"=>$_POST["editarCelular"],
-                        "correo"=>$_POST["editarCorreo"],
-                        "cantidad"=>$_POST["editarCantidad"],
-                        "postulante"=>$_POST["editarAsistenciaPostulante"]);
-                $respuesta=ModeloRegistros::mdlEditarRegistro2($tabla,$datos);
-                if($respuesta== "ok"){
-                    echo'<script>
+     static public function ctrEditarRegistro2(){
+         if(isset($_POST["editarNombre"])){
+             if(preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["editarNombre"])&&
+             preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["editarFamilia"])&&
+             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarIngreso"])&&
+             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarGrado"])&&
+             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarCelular"]&&
+             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarCantidad"])
+             )){
+                 $tabla = "registro_familias_postulantes";
+                 $datos=array(
+                         "idPostulante"=>$_POST["idPostulante"],
+                         "nombre"=>$_POST["editarNombre"],
+                         "familia"=>$_POST["editarFamilia"],
+                         "ingreso"=>$_POST["editarIngreso"],
+                         "grado"=>$_POST["editarGrado"],
+                         "celular"=>$_POST["editarCelular"],
+                         "correo"=>$_POST["editarCorreo"],
+                         "cantidad"=>$_POST["editarCantidad"],
+                         "postulante"=>$_POST["editarAsistenciaPostulante"]);
+                 $respuesta=ModeloRegistros::mdlEditarRegistro2($tabla,$datos);
+                 if($respuesta== "ok"){
+                     echo'<script>
 
-                    swal({
-                        type: "success",
-                        title: "La categoria ha sido modificada correctamente",
-                        showConfirmButton: true,
-                        confirmButtonText: "Cerrar"
-                        }).then(function(result){
-                                    if (result.value) {
+                     swal({
+                         type: "success",
+                         title: "La categoria ha sido modificada correctamente",
+                         showConfirmButton: true,
+                         confirmButtonText: "Cerrar"
+                         }).then(function(result){
+                                     if (result.value) {
 
-                                    window.location = "registros";
+                                     window.location = "registros";
 
-                                    }
-                                })
+                                     }
+                                 })
 
-                    </script>';
-                }
+                     </script>';
+                 }
 
-            }else{
-                echo'<script>
+             }else{
+                 echo'<script>
 
-				swal({
-					  type: "error",
-					  title: "!Los campos no pueden ir vacios o llevar caracteres especiales¡",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar",
-                      closeOnConfirm: false
-					  }).then(function(result){
-								if (result.value) {
+	 			swal({
+	 				  type: "error",
+	 				  title: "!Los campos no pueden ir vacios o llevar caracteres especiales¡",
+	 				  showConfirmButton: true,
+	 				  confirmButtonText: "Cerrar",
+                       closeOnConfirm: false
+	 				  }).then(function(result){
+	 							if (result.value) {
 
-								window.location = "registros";
+	 							window.location = "registros";
 
-								}
-							})
+	 							}
+	 						})
 
-				</script>';
-            }
-        }
-    }
+	 			</script>';
+             }
+         }
+     }
 
     /*=============================================
 	            BORRAR REGISTROS

@@ -53,20 +53,20 @@
                 </div>
                 <div class="form-group">
                   <label>Grado</label>
-                  <input type="text" id="grado" class="form-control select2" name="id_pos" style="width: 100%;" required >
+                  <input type="text" id="grado" class="form-control select2" name="" style="width: 100%;" required >
                 </div>
                 <div class="form-group">
                   <label>Año Ingreso</label>
-                  <input type="text" id="ingreso" class="form-control select2" name="id_pos" style="width: 100%;" required >
+                  <input type="text" id="ingreso" class="form-control select2" name="" style="width: 100%;" required >
                 </div>
                 <div class="form-group">
                   <label>Cantidad</label>
-                  <input type="number" class="form-control select2" name="editarCantidad" style="width: 100%;" required>
+                  <input type="number" class="form-control select2" name="editarCantidad1" style="width: 100%;" required>
                 </div>
                 <!-- /.form-group -->
                 <div class="form-group">
                   <label>Postulante</label>
-                  <select class="form-control select2" name="editarPostulante" style="width: 100%;">
+                  <select class="form-control select2" name="editarPostulante1" style="width: 100%;">
 
                     <option value="Si">Si</option>
                     <option value="No">No</option>
