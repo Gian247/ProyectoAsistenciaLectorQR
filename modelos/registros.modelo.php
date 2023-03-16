@@ -20,10 +20,12 @@ class ModeloRegistros{
         $stmt=null;
     }
     static public function mdlEditarRegistros($tabla,$datos){
-        $stmt=Conexion::conectar()->prepare("UPDATE $tabla SET cantidad_asistentes = :asistentes, asistencia_postulante = :postulante WHERE  id_postulante = :id");
+        $stmt=Conexion::conectar()->prepare("UPDATE $tabla SET cantidad_asistentes = :asistentes, asistencia_postulante = :postulante, marca_asistencia= :marcaAsistencia  WHERE  id_postulante = :id");
         $stmt->bindParam(":asistentes",$datos["cantidad"],PDO::PARAM_INT);
         $stmt->bindParam(":postulante",$datos["asistencia"],PDO::PARAM_STR);
         $stmt->bindParam(":id",$datos["id_postulante"],PDO::PARAM_STR);
+        $stmt->bindParam(":marcaAsistencia",$datos["marcaAsistencia"],PDO::PARAM_STR);
+
         if($stmt->execute()){
             return "ok";
         }else{
@@ -102,5 +104,41 @@ class ModeloRegistros{
         }
         $stmt->close();
         $stmt=null;
+    }
+
+    static public function mdlCantidadAsistentesPorGrado($fecha,$grado){
+        if($grado==null && $fecha==null){
+            $stmt=Conexion::conectar()->prepare("SELECT * FROM registro_familias_postulantes WHERE marca_asistencia>0");
+           
+            $stmt->execute();
+            return $stmt->fetchAll();
+
+        }else{
+            if($fecha==null){
+                $stmt=Conexion::conectar()->prepare("SELECT * FROM registro_familias_postulantes WHERE grado_ingreso=:grado AND marca_asistencia>0");
+                $stmt->bindParam(":grado",$grado,PDO::PARAM_STR);
+                $stmt->execute();
+                return $stmt->fetchAll();
+                
+            }else if($grado==null){
+                $stmt=Conexion::conectar()->prepare("SELECT * FROM registro_familias_postulantes WHERE posible_ingreso=:fecha AND marca_asistencia>0");
+                $stmt->bindParam(":fecha",$fecha,PDO::PARAM_STR);
+                
+                $stmt->execute();
+                return $stmt->fetchAll();
+
+            }else{
+                $stmt=Conexion::conectar()->prepare("SELECT * FROM registro_familias_postulantes WHERE posible_ingreso=:fecha AND grado_ingreso=:grado AND marca_asistencia>0");
+                $stmt->bindParam(":fecha",$fecha,PDO::PARAM_STR);
+                $stmt->bindParam(":grado",$grado,PDO::PARAM_STR);
+                $stmt->execute();
+                return $stmt->fetchAll();
+    
+            }
+        }
+        
+        $stmt->close();
+        $stmt=null;
+
     }
 }

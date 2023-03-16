@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html  lang="es">
 <head>
-  <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+<meta charset="UTF-8">
+  <meta http-equiv=”Content-Type” content=”text/html″ />
 
   
   <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
@@ -17,6 +18,7 @@
    <!--=====================================
   PLUGINS DE CSS
   ======================================-->
+
 
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -98,7 +100,8 @@ CUERPO DOCUMENTO
         include "modulos/cabezote.php";
         include "modulos/menu.php";
     if(isset($_GET["ruta"])){
-        if($_GET["ruta"]=="inicio" || $_GET["ruta"]=="registros"){
+        if($_GET["ruta"]=="inicio" || $_GET["ruta"]=="registros" ||
+        $_GET["ruta"]=="reportes"){
 
             include "modulos/".$_GET["ruta"].".php";
 

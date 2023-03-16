@@ -58,3 +58,13 @@ $(document).on("click",".btnEditarRegistro",function(){
             }
         })
     })
+
+
+/*=============================================
+IMPRIMIR REPORTE
+=============================================*/
+
+$(".tablas").on("click",".btnImprimirReporte", function(){
+	
+	window.open("extensiones/descargar-reporte.php","_blank");
+})

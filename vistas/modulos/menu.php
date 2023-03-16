@@ -28,6 +28,17 @@
 
 			</li>
 
+			<li>
+
+				<a href="reportes">
+
+					<i class="fa fa-th"></i>
+					<span>Reportes</span>
+
+				</a>
+
+			</li>
+
 			
 			
 

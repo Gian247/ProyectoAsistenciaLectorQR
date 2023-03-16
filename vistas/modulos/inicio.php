@@ -43,7 +43,7 @@
             <!-- /.col -->
             <div class="col-md-6">
               <form action="" method="post">
-                <div class="form-group">
+                <div class="form-group ">
                   <label>Id Postulante</label>
                   <input type="text" id="text" class="form-control select2" name="id_pos" style="width: 100%;" required >
                 </div>
@@ -51,11 +51,11 @@
                   <label>Nombre Postulante</label>
                   <input type="text" id="nombreMostrar" class="form-control select2" name="" style="width: 100%;" required >
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6" style="padding: 0;">
                   <label>Grado</label>
                   <input type="text" id="grado" class="form-control select2" name="" style="width: 100%;" required >
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                   <label>Año Ingreso</label>
                   <input type="text" id="ingreso" class="form-control select2" name="" style="width: 100%;" required >
                 </div>
@@ -71,8 +71,9 @@
                     <option value="Si">Si</option>
                     <option value="No">No</option>
                   </select>
-                </div>
+                  <input type="hidden" name="campoAsistenciaFamilia"  value="1">
 
+                  <br>
                 <div class="form-group">
                   <button type="Submit" class="form-control btn btn-success select2" style="width: 100%;">Enviar</button>
                 </div>
