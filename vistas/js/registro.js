@@ -19,13 +19,21 @@ $(document).on("click",".btnEditarRegistro",function(){
         dataType: "json",
         success:function(respuesta){
             $("#idPostulante").val(respuesta["id_postulante"]);
-            $("#editarNombre").val(respuesta["nombre_completo"]);
             $("#editarFamilia").val(respuesta["familia"]);
+            $("#editarNombre").val(respuesta["nombre_completo"]);
+            $("#editarApoderado").val(respuesta["responsable"]);
+
+            $("#editarDistrito").html(respuesta["residencia"]);
+            $("#editarDistrito").val(respuesta["residencia"]);
+
+            $("#editarIngreso").html(respuesta["posible_ingreso"]);
             $("#editarIngreso").val(respuesta["posible_ingreso"]);
+            $("#editarGrado").html(respuesta["grado_ingreso"]);
             $("#editarGrado").val(respuesta["grado_ingreso"]);
             $("#editarCelular").val(respuesta["celular"]);
             $("#editarCorreo").val(respuesta["correo"]);
             $("#editarCantidad").val(respuesta["cantidad_asistentes"]);
+            $("#editarAsistenciaPostulante").html(respuesta["asistencia_postulante"]);
             $("#editarAsistenciaPostulante").val(respuesta["asistencia_postulante"]);
 
             
@@ -64,7 +72,9 @@ $(document).on("click",".btnEditarRegistro",function(){
 IMPRIMIR REPORTE
 =============================================*/
 
-$(".tablas").on("click",".btnImprimirReporte", function(){
+$(".tablas").on("click",".btnImprimirCodigoQr", function(){
+    let datosFamilia=$(this).attr("datosFamilia");
 	
-	window.open("extensiones/descargar-reporte.php","_blank");
+	window.open("extensiones/tcpdf/pdf/codigoQR.php?dataFamilia="+datosFamilia,"_blank");
 })
+

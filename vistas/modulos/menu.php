@@ -32,7 +32,7 @@
 
 				<a href="reportes">
 
-					<i class="fa fa-th"></i>
+					<i class="fa fa-pie-chart"></i>
 					<span>Reportes</span>
 
 				</a>

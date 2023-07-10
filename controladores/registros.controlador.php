@@ -39,23 +39,17 @@ class ControladorRegistros{
 
     static public function ctrCrearRegistro(){
         if(isset($_POST["nuevoNombre"])){
-            if(preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["nuevoNombre"])&&
-            preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["nuevaFamilia"])&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevoIngreso"])&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevoGrado"])&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevoCelular"]&&
-            preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevaCantidad"])
-            )){
+            
                 $tabla = "registro_familias_postulantes";
                 
-                $datos=array("nombre"=>$_POST["nuevoNombre"],
-                        "familia"=>$_POST["nuevaFamilia"],
+                $datos=array("familia"=>$_POST["nuevaFamilia"],
+                    "nombre"=>$_POST["nuevoNombre"],
+                        "apoderado"=>$_POST["nuevoApoderado"],
                         "ingreso"=>$_POST["nuevoIngreso"],
                         "grado"=>$_POST["nuevoGrado"],
                         "celular"=>$_POST["nuevoCelular"],
                         "correo"=>$_POST["nuevoCorreo"],
-                        "cantidad"=>$_POST["nuevaCantidad"],
-                        "postulante"=>$_POST["nuevaAsistenciaPostulante"]);
+                        "residencia"=>$_POST["nuevoDistrito"]);
                 $respuesta=ModeloRegistros::mdlIngresarRegistro($tabla,$datos);
                 var_dump($datos);
                 if($respuesta== "ok"){
@@ -77,42 +71,20 @@ class ControladorRegistros{
                     </script>';
                 }
 
-            }else{
-                echo'<script>
-
-				swal({
-					  type: "error",
-					  title: "!La categoria no puede ir vacia o llevar caracteres especiales¡",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar",
-                      closeOnConfirm: false
-					  }).then(function(result){
-								if (result.value) {
-
-								window.location = "categorias";
-
-								}
-							})
-
-				</script>';
-            }
+            
         }
     }
 
      static public function ctrEditarRegistro2(){
          if(isset($_POST["editarNombre"])){
-             if(preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["editarNombre"])&&
-             preg_match('/^[a-zA-Z0-9 ]+$/',$_POST["editarFamilia"])&&
-             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarIngreso"])&&
-             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarGrado"])&&
-             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarCelular"]&&
-             preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarCantidad"])
-             )){
+             
                  $tabla = "registro_familias_postulantes";
                  $datos=array(
                          "idPostulante"=>$_POST["idPostulante"],
-                         "nombre"=>$_POST["editarNombre"],
                          "familia"=>$_POST["editarFamilia"],
+                         "nombre"=>$_POST["editarNombre"],
+                         "responsable"=>$_POST["editarApoderado"],
+                         "distrito"=>$_POST["editarDistrito"],
                          "ingreso"=>$_POST["editarIngreso"],
                          "grado"=>$_POST["editarGrado"],
                          "celular"=>$_POST["editarCelular"],
@@ -139,25 +111,7 @@ class ControladorRegistros{
                      </script>';
                  }
 
-             }else{
-                 echo'<script>
-
-	 			swal({
-	 				  type: "error",
-	 				  title: "!Los campos no pueden ir vacios o llevar caracteres especiales¡",
-	 				  showConfirmButton: true,
-	 				  confirmButtonText: "Cerrar",
-                       closeOnConfirm: false
-	 				  }).then(function(result){
-	 							if (result.value) {
-
-	 							window.location = "registros";
-
-	 							}
-	 						})
-
-	 			</script>';
-             }
+             
          }
      }
 
